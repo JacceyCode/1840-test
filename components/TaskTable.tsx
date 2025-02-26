@@ -166,6 +166,15 @@ const TaskTable = () => {
     setOpenDetailsDialog(true);
   };
 
+  const handleTaskDetailUpdate = (task: Task) => {
+    const updatedTaskData = taskData.map((data) =>
+      data.id === task.id ? task : data
+    );
+
+    setTaskData(updatedTaskData);
+    saveTask(updatedTaskData);
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       const tasks = getAllTasks();
@@ -409,6 +418,7 @@ const TaskTable = () => {
               openDetailsDialog={openDetailsDialog}
               setOpenDetailsDialog={setOpenDetailsDialog}
               task={taskDetail!}
+              handleTaskDetailUpdate={handleTaskDetailUpdate}
             />
           )}
         </>

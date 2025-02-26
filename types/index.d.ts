@@ -18,10 +18,11 @@ export declare global {
     setTaskData: Dispatch<SetStateAction<Task[]>>;
     setOpenDialog: Dispatch<SetStateAction<boolean>>;
   }
-  
+
   interface DetailsDialogProps {
+    task: Task;
     openDetailsDialog: boolean;
     setOpenDetailsDialog: Dispatch<SetStateAction<boolean>>;
-    task: Task;
+    handleTaskDetailUpdate: (task: Task) => void;
   }
 }

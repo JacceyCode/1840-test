@@ -276,10 +276,10 @@ const TaskForm = ({
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="bg-white border-0 dropdown-selector">
-                        {Object.values(TaskStatus).map((stat, i) => (
+                        {Object.values(TaskStatus).map((stat) => (
                           <SelectItem
                             value={stat}
-                            key={i}
+                            key={stat}
                             className="capitalize"
                           >
                             {stat}
