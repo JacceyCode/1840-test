@@ -9,4 +9,19 @@ export declare global {
     priority: TaskPriority;
     status: TaskStatus;
   }
+
+  interface TaskFormProps {
+    taskId: string | undefined;
+    taskData: Task[];
+    openDialog: boolean;
+    setTaskId: Dispatch<SetStateAction<string | undefined>>;
+    setTaskData: Dispatch<SetStateAction<Task[]>>;
+    setOpenDialog: Dispatch<SetStateAction<boolean>>;
+  }
+  
+  interface DetailsDialogProps {
+    openDetailsDialog: boolean;
+    setOpenDetailsDialog: Dispatch<SetStateAction<boolean>>;
+    task: Task;
+  }
 }

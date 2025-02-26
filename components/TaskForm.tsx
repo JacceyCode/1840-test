@@ -31,9 +31,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { saveTask } from "@/lib/helper";
 import { cn } from "@/lib/utils";
 import { TaskPriority, TaskStatus } from "@/types/enum";
-import { format, startOfDay } from "date-fns";
+import { format } from "date-fns";
 import { CalendarIcon, Plus } from "lucide-react";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const TaskForm = ({
@@ -43,14 +43,7 @@ const TaskForm = ({
   setTaskData,
   openDialog,
   setOpenDialog,
-}: {
-  taskId: string | undefined;
-  taskData: Task[];
-  openDialog: boolean;
-  setTaskId: Dispatch<SetStateAction<string | undefined>>;
-  setTaskData: Dispatch<SetStateAction<Task[]>>;
-  setOpenDialog: Dispatch<SetStateAction<boolean>>;
-}) => {
+}: TaskFormProps) => {
   const [formError, setFormError] = useState<boolean>(false);
   // 1. Define your form.
   const form = useForm({
@@ -136,12 +129,12 @@ const TaskForm = ({
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-[450px] bg-color_1 max-h-[calc(100vh-1rem)] max-sm:h-full">
+      <DialogContent className="max-w-[450px] bg-color_1 max-h-[calc(100vh-1rem)]">
         <DialogHeader>
           <DialogTitle>{`${taskId ? "Edit" : "Add"} Task`}</DialogTitle>
         </DialogHeader>
 
-        <section className="py-4 overflow-y-scroll">
+        <section className="py-4 overflow-y-auto remove-scrollbar max-h-[500px]">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               {formError && (

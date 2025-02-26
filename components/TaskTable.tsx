@@ -38,6 +38,7 @@ import {
 } from "@tanstack/react-table";
 import { ArrowUpDown, Edit, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import Taskdetails from "@/components/Taskdetails";
 
 const priorityOrder = {
   low: 1,
@@ -62,7 +63,11 @@ export const columns: ColumnDef<Task>[] = [
     accessorKey: "description",
     header: "Description",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("description")}</div>
+      <div className="capitalize">
+        {String(row.getValue("description")).length > 30
+          ? `${String(row.getValue("description")).substring(0, 30)} . . .`
+          : row.getValue("description")}
+      </div>
     ),
   },
   {
@@ -136,6 +141,8 @@ const TaskTable = () => {
   const [taskId, setTaskId] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
+  const [openDetailsDialog, setOpenDetailsDialog] = useState<boolean>(false);
+  const [taskDetail, setTaskDetail] = useState<Task>();
 
   const handleDeleteTask = (id: string) => {
     const newTasks = taskData.filter((task) => task.id !== id);
@@ -149,6 +156,14 @@ const TaskTable = () => {
 
     setTaskId(id);
     setOpenDialog(true);
+  };
+
+  const handleOpenTaskdetailsModal = (id: string) => {
+    const task = taskData.find((task) => task.id === id);
+
+    setTaskDetail(task);
+
+    setOpenDetailsDialog(true);
   };
 
   useEffect(() => {
@@ -313,9 +328,10 @@ const TaskTable = () => {
                   table.getRowModel().rows.map((row) => (
                     <TableRow
                       key={row.id}
-                      //   data-state={row.getIsSelected() && "selected"}
                       className="border-color_5 cursor-pointer hover:bg-color_8"
-                      onClick={() => console.log("row", row.id)}
+                      onClick={() => {
+                        handleOpenTaskdetailsModal(row.getValue("id"));
+                      }}
                     >
                       {row.getVisibleCells().map((cell) => (
                         <TableCell key={cell.id}>
@@ -387,6 +403,14 @@ const TaskTable = () => {
               </Button>
             </section>
           </section>
+
+          {taskDetail && (
+            <Taskdetails
+              openDetailsDialog={openDetailsDialog}
+              setOpenDetailsDialog={setOpenDetailsDialog}
+              task={taskDetail!}
+            />
+          )}
         </>
       )}
     </section>
