@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 1840 & Company React.js Developer Test
 
-## Getting Started
+## Project Overview:
 
-First, run the development server:
+This project is a react.js developer assessment for 1840 & company. The goal is to build a dynamic and interractive task manager application that includes task table, creating, editing and deleting of tasks, a task creation and edit form, and a task details modal.
+
+## Tech Stack
+
+- Framework: Next.js
+- Language: TypeScript
+- Styling: TailwindCss, Shadcn
+- Testing: Jest
+
+## Features
+
+- Table: Task Table.
+- Filter: Filter option for the title, description, priority and status fields.
+- Sort: Sort option for the date and Priority fields.
+- Form: Task creation and edit form.
+- Responsive Design: Optimized for mobile and desktop views.
+- Unit Testing: Various test cases.
+
+## Installation & Setup
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- Node.js (LTS recommended)
+- Yarn or npm
+
+#### Clone the Repository
+
+```bash
+git clone https://github.com/JacceyCode/1840-test
+cd 1840-test
+```
+
+#### Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+#### Run the Development Server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### Run Tests
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm test
+# or
+yarn test
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is deployed on `Vercel`. You can access it at:
+https://jacob-1840-react-developer-test.vercel.app
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Approach & Decisions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Next.js: Used for optimized performance and SEO.
+- TypeScript: Ensures type safety and better maintainability.
+- Shadcn: Provides reusable and accessible UI components.
+- TailwindCss: Enables scalable styling.
+- LocalStorage: Efficient data storage for user details.
+- Jest: Ensures high code quality through testing.
 
-## Deploy on Vercel
+## Submission Details
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Live App: [https://jacob-1840-react-developer-test.vercel.app](https://jacob-1840-react-developer-test.vercel.app)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- GitHub Repo: [https://github.com/JacceyCode/1840-test](https://github.com/JacceyCode/1840-test)
+
+## Contact
+
+For any inquiries, feel free to reach out:
+
+- Email: jacobadebayo.ja@gmail.com
+- GitHub: JacceyCode
+
+##
+
+Note: This assessment was completed following all instructions and best practices outlined by 1840 & Company.
