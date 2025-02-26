@@ -31,7 +31,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { saveTask } from "@/lib/helper";
 import { cn } from "@/lib/utils";
 import { TaskPriority, TaskStatus } from "@/types/enum";
-import { format } from "date-fns";
+import { format, startOfDay } from "date-fns";
 import { CalendarIcon, Plus } from "lucide-react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";

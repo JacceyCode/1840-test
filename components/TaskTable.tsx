@@ -81,6 +81,11 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => (
       <div className="capitalize">{formatDate(row.getValue("due_date"))}</div>
     ),
+    sortingFn: (rowA, rowB) => {
+      const dateA = new Date(rowA.getValue("due_date"));
+      const dateB = new Date(rowB.getValue("due_date"));
+      return dateA.getTime() - dateB.getTime();
+    },
   },
   {
     accessorKey: "priority",
@@ -363,6 +368,7 @@ const TaskTable = () => {
                 size="sm"
                 onClick={() => table.previousPage()}
                 disabled={!table.getCanPreviousPage()}
+                className="border border-color_5 disabled:cursor-not-allowed"
               >
                 Previous
               </Button>
@@ -375,6 +381,7 @@ const TaskTable = () => {
                 size="sm"
                 onClick={() => table.nextPage()}
                 disabled={!table.getCanNextPage()}
+                className="border border-color_5 disabled:cursor-not-allowed"
               >
                 Next
               </Button>
